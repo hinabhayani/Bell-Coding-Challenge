@@ -11,23 +11,19 @@ Testing- Junit, Mockito
 The following software are required.
 
 Angular - Node js Version 16.16.0
-        - npm install -g @angular/cli
-        - Default Server Port Is 4200
-        - ng serve or npm start (Server will be running on port 4200)
+        - $ npm install -g @angular/cli
+        - $ ng serve or npm start 
+         - Default Server Port Is 4200 (http://localhost:4200/)
 
 Java - Java JDK 1.8
      - Default Server Port Is 8080
-     - Run as - Spring Boot App (Server will be running on port 8080)
-     - Run as -Junit (It will run test cases)
+     - Run as - Spring Boot App (http://localhost:8080/)
+     - mvn clean install (It will run Test cases)
  --------------------------------------------------------------------------------------------------------------------------------------------------------------
-3. Build & Run
-  3.1 Java: Run as - Spring Boot App
-  3.2 Junit- Run as- Junit
+
 3.Funcationality
 
-3.1 Backend -
-
-I have created Junit Test Cases and 3 APIs based on given Details in the backend. 
+3.1 Backend - Project contains Junit Test Cases and 3 APIs based on given Details in the backend. 
 
 API 1: 
     -URL: http://localhost:8080/api/media/getMediaList?top=2
@@ -130,6 +126,6 @@ API 3:
      3.2 Anglar
 
      - Created single page UI to display APIs response. It has table that contains List of Media and on click of Media It will show a Poster Image And Mideia Detail           of each Media.
-     - I hahve created two DropDown one Contains MediaList and second One have ImageType. 
+     - Added two DropDown one Contains MediaList and second One have ImageType. 
      - If you select Media from Media List then It will shows Media Details with all of the Images with Image Type.
      - If you select Media From First DropDown and Image Type from second Drop Down Tha It will Shows MediaDetails and Display Image of selected Image Type.
