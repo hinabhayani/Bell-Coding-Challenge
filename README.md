@@ -30,9 +30,11 @@ Java - Java JDK 1.8
 Project contains Junit Test Cases and 3 APIs based on given Details in the backend. 
 
 API 1: 
+```
     -URL: http://localhost:8080/api/media/getMediaList?top=2
     -Method: GET
     -Response: It will return list of Media Details list
+```    
 ```
              {
               "status": "OK",
@@ -56,9 +58,11 @@ API 1:
  ```
    --------------------------------------------------------------------------------------------------------------------------------------------------------------
 API 2:
+```
     - URL: http://localhost:8080/api/media/getMediaDetailsById/32254
     - Method: GET
     - Response: It will return Media details of provided Media Id. 
+```
   ```   {
     "status": "OK",
     "message": "Successfully Get Media Details.",
@@ -94,12 +98,15 @@ API 2:
    ```
   --------------------------------------------------------------------------------------------------------------------------------------------------------------    
 API 3: 
+```
     - URL: http://localhost:8080/api/media/getMediaDetailsByIdAndType
     - Method: POST
-    -Request Body:```{
+    - Request Body:
+                {
                   id":32254,
                   "imageType":"square"
-                 }```
+                 }
+```   
       -Response: It will Return Media Details and Image list as per given Media Id & Image Type.
  ```
               {
