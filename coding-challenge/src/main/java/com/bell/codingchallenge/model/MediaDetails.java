@@ -15,7 +15,7 @@ import lombok.Setter;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class ItemsDetails {
+public class MediaDetails {
 
 	@JsonProperty("Id")
 	private Integer id;

@@ -21,8 +21,8 @@ import org.springframework.web.client.RestTemplate;
 
 import com.bell.codingchallenge.model.Genres;
 import com.bell.codingchallenge.model.Items;
-import com.bell.codingchallenge.model.ItemsDetails;
-import com.bell.codingchallenge.model.ItemsType;
+import com.bell.codingchallenge.model.MediaDetails;
+import com.bell.codingchallenge.model.Medias;
 import com.bell.codingchallenge.model.MediaImages;
 import com.bell.codingchallenge.service.impl.ItemsServiceImpl;
 import com.bell.codingchallenge.utils.BellVariableUtil;
@@ -40,16 +40,16 @@ public class ItemsServiceImplTest {
 		Items items = new Items(MEDIA_ID, "Bosch");
 		List<Items> listOfItems = new ArrayList<Items>();
 		listOfItems.add(items);
-		ItemsType itemsType = new ItemsType(listOfItems, "Media");
+		Medias itemsType = new Medias(listOfItems, "Media");
 
-		ResponseEntity<ItemsType> responseMock = new ResponseEntity<ItemsType>(itemsType, HttpStatus.OK);
+		ResponseEntity<Medias> responseMock = new ResponseEntity<Medias>(itemsType, HttpStatus.OK);
 		RestTemplate restTemplate = mock(RestTemplate.class);
 
-		when(restTemplate.getForEntity(BellVariableUtil.BELL_API_FOR_LIST_OF_MEDIA + TOP_VALUE, ItemsType.class))
+		when(restTemplate.getForEntity(BellVariableUtil.BELL_API_FOR_LIST_OF_MEDIA + TOP_VALUE, Medias.class))
 				.thenReturn(responseMock);
 
-		ResponseEntity<ItemsType> listOfMediaList = restTemplate
-				.getForEntity(BellVariableUtil.BELL_API_FOR_LIST_OF_MEDIA + TOP_VALUE, ItemsType.class);
+		ResponseEntity<Medias> listOfMediaList = restTemplate
+				.getForEntity(BellVariableUtil.BELL_API_FOR_LIST_OF_MEDIA + TOP_VALUE, Medias.class);
 
 		assertEquals(HttpStatus.OK, listOfMediaList.getStatusCode());
 		assertNotNull(listOfMediaList.getBody());
@@ -60,30 +60,30 @@ public class ItemsServiceImplTest {
 	@DisplayName("Scenario When API return empty list")
 	public void testGetMediaListIsEmpty() {
 
-		ResponseEntity<ItemsType> responseMock = new ResponseEntity<ItemsType>(new ItemsType(), HttpStatus.NO_CONTENT);
+		ResponseEntity<Medias> responseMock = new ResponseEntity<Medias>(new Medias(), HttpStatus.NO_CONTENT);
 		RestTemplate restTemplate = mock(RestTemplate.class);
 
-		when(restTemplate.getForEntity(BellVariableUtil.BELL_API_FOR_LIST_OF_MEDIA + TOP_VALUE, ItemsType.class))
+		when(restTemplate.getForEntity(BellVariableUtil.BELL_API_FOR_LIST_OF_MEDIA + TOP_VALUE, Medias.class))
 				.thenReturn(responseMock);
-		ResponseEntity<ItemsType> listOfMediaList = restTemplate
-				.getForEntity(BellVariableUtil.BELL_API_FOR_LIST_OF_MEDIA + TOP_VALUE, ItemsType.class);
+		ResponseEntity<Medias> listOfMediaList = restTemplate
+				.getForEntity(BellVariableUtil.BELL_API_FOR_LIST_OF_MEDIA + TOP_VALUE, Medias.class);
 		assertEquals(HttpStatus.NO_CONTENT, listOfMediaList.getStatusCode());
 		assertNull(listOfMediaList.getBody().getItems());
 	}
 
 	@Test
 	public void testGetMediaDetailsById() {
-		ItemsDetails itemsDetails = new ItemsDetails(MEDIA_ID, "Robert", "RB", "Robert Bosh",
+		MediaDetails itemsDetails = new MediaDetails(MEDIA_ID, "Robert", "RB", "Robert Bosh",
 				new ArrayList<MediaImages>(), new ArrayList<Genres>());
 
-		ResponseEntity<ItemsDetails> responseMock = new ResponseEntity<ItemsDetails>(itemsDetails, HttpStatus.OK);
+		ResponseEntity<MediaDetails> responseMock = new ResponseEntity<MediaDetails>(itemsDetails, HttpStatus.OK);
 		RestTemplate restTemplate = mock(RestTemplate.class);
 
-		when(restTemplate.getForEntity(BellVariableUtil.BELL_API_FOR_MEDIA_DETAILS + MEDIA_ID, ItemsDetails.class))
+		when(restTemplate.getForEntity(BellVariableUtil.BELL_API_FOR_MEDIA_DETAILS + MEDIA_ID, MediaDetails.class))
 				.thenReturn(responseMock);
 
-		ResponseEntity<ItemsDetails> listOfMediaList = restTemplate
-				.getForEntity(BellVariableUtil.BELL_API_FOR_MEDIA_DETAILS + MEDIA_ID, ItemsDetails.class);
+		ResponseEntity<MediaDetails> listOfMediaList = restTemplate
+				.getForEntity(BellVariableUtil.BELL_API_FOR_MEDIA_DETAILS + MEDIA_ID, MediaDetails.class);
 
 		assertEquals(HttpStatus.OK, listOfMediaList.getStatusCode());
 		assertNotNull(listOfMediaList.getBody());
@@ -94,15 +94,15 @@ public class ItemsServiceImplTest {
 	@DisplayName("Scenario When Media Details API return empty list")
 	public void testGetMediaDetailsByIdIsEmpty() {
 
-		ResponseEntity<ItemsDetails> responseMock = new ResponseEntity<ItemsDetails>(new ItemsDetails(),
+		ResponseEntity<MediaDetails> responseMock = new ResponseEntity<MediaDetails>(new MediaDetails(),
 				HttpStatus.NO_CONTENT);
 		RestTemplate restTemplate = mock(RestTemplate.class);
 
-		when(restTemplate.getForEntity(BellVariableUtil.BELL_API_FOR_MEDIA_DETAILS + MEDIA_ID, ItemsDetails.class))
+		when(restTemplate.getForEntity(BellVariableUtil.BELL_API_FOR_MEDIA_DETAILS + MEDIA_ID, MediaDetails.class))
 				.thenReturn(responseMock);
 
-		ResponseEntity<ItemsDetails> listOfMediaList = restTemplate
-				.getForEntity(BellVariableUtil.BELL_API_FOR_MEDIA_DETAILS + MEDIA_ID, ItemsDetails.class);
+		ResponseEntity<MediaDetails> listOfMediaList = restTemplate
+				.getForEntity(BellVariableUtil.BELL_API_FOR_MEDIA_DETAILS + MEDIA_ID, MediaDetails.class);
 
 		assertEquals(HttpStatus.NO_CONTENT, listOfMediaList.getStatusCode());
 		assertNull(listOfMediaList.getBody().getId());
@@ -110,17 +110,17 @@ public class ItemsServiceImplTest {
 
 	@Test
 	public void testGetMediaDetailsByIdAndType() {
-		ItemsDetails itemsDetails = new ItemsDetails(MEDIA_ID, "Robert", "RB", "Robert Bosh",
+		MediaDetails itemsDetails = new MediaDetails(MEDIA_ID, "Robert", "RB", "Robert Bosh",
 				new ArrayList<MediaImages>(), new ArrayList<Genres>());
 
-		ResponseEntity<ItemsDetails> responseMock = new ResponseEntity<ItemsDetails>(itemsDetails, HttpStatus.OK);
+		ResponseEntity<MediaDetails> responseMock = new ResponseEntity<MediaDetails>(itemsDetails, HttpStatus.OK);
 		RestTemplate restTemplate = mock(RestTemplate.class);
 
-		when(restTemplate.getForEntity(BellVariableUtil.BELL_API_FOR_MEDIA_DETAILS + MEDIA_ID, ItemsDetails.class))
+		when(restTemplate.getForEntity(BellVariableUtil.BELL_API_FOR_MEDIA_DETAILS + MEDIA_ID, MediaDetails.class))
 				.thenReturn(responseMock);
 
-		ResponseEntity<ItemsDetails> listOfMediaList = restTemplate
-				.getForEntity(BellVariableUtil.BELL_API_FOR_MEDIA_DETAILS + MEDIA_ID, ItemsDetails.class);
+		ResponseEntity<MediaDetails> listOfMediaList = restTemplate
+				.getForEntity(BellVariableUtil.BELL_API_FOR_MEDIA_DETAILS + MEDIA_ID, MediaDetails.class);
 		assertEquals(HttpStatus.OK, listOfMediaList.getStatusCode());
 		assertNotNull(listOfMediaList.getBody());
 		assertNotNull(listOfMediaList.getBody().getImages());
@@ -130,17 +130,17 @@ public class ItemsServiceImplTest {
 	@Test
 	@DisplayName("Scenario When Media Images is empty")
 	public void testGetMediaDetailsByIdAndTypeImageIsEmpty() {
-		ItemsDetails itemsDetails = new ItemsDetails(MEDIA_ID, "Robert", "RB", "Robert Bosh",
+		MediaDetails itemsDetails = new MediaDetails(MEDIA_ID, "Robert", "RB", "Robert Bosh",
 				new ArrayList<MediaImages>(), new ArrayList<Genres>());
 
-		ResponseEntity<ItemsDetails> responseMock = new ResponseEntity<ItemsDetails>(itemsDetails, HttpStatus.NO_CONTENT);
+		ResponseEntity<MediaDetails> responseMock = new ResponseEntity<MediaDetails>(itemsDetails, HttpStatus.NO_CONTENT);
 		RestTemplate restTemplate = mock(RestTemplate.class);
 
-		when(restTemplate.getForEntity(BellVariableUtil.BELL_API_FOR_MEDIA_DETAILS + MEDIA_ID, ItemsDetails.class))
+		when(restTemplate.getForEntity(BellVariableUtil.BELL_API_FOR_MEDIA_DETAILS + MEDIA_ID, MediaDetails.class))
 				.thenReturn(responseMock);
 
-		ResponseEntity<ItemsDetails> listOfMediaList = restTemplate
-				.getForEntity(BellVariableUtil.BELL_API_FOR_MEDIA_DETAILS + MEDIA_ID, ItemsDetails.class);
+		ResponseEntity<MediaDetails> listOfMediaList = restTemplate
+				.getForEntity(BellVariableUtil.BELL_API_FOR_MEDIA_DETAILS + MEDIA_ID, MediaDetails.class);
 
 		assertEquals(HttpStatus.NO_CONTENT, listOfMediaList.getStatusCode());
 		assertNotNull(listOfMediaList.getBody());

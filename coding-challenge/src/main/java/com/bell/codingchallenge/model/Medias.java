@@ -15,7 +15,7 @@ import lombok.Setter;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class ItemsType {
+public class Medias {
 	
 	@JsonProperty("Items")
 	private List<Items> items;
