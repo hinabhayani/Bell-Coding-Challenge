@@ -130,8 +130,6 @@ API 3:
    ```
 
 
-     --------------------------------------------------------------------------------------------------------------------------------------------------------------
-
  #### 3.2 Frontend /Angular
 
      - Created single page UI to display APIs response. It has table that contains List of Media and on click of Media It will show a Poster Image And Mideia Detail           of each Media.
