@@ -25,7 +25,7 @@ Java - Java JDK 1.8
 
 3.Funcationality
 
-## 3.1 Backend / Java
+#### 3.1 Backend / Java
 
 Project contains Junit Test Cases and 3 APIs based on given Details in the backend. 
 
@@ -132,7 +132,7 @@ API 3:
 
      --------------------------------------------------------------------------------------------------------------------------------------------------------------
 
- ## 3.2 Frontend /Angular
+ #### 3.2 Frontend /Angular
 
      - Created single page UI to display APIs response. It has table that contains List of Media and on click of Media It will show a Poster Image And Mideia Detail           of each Media.
      - Added two DropDown one Contains MediaList and second One have ImageType. 
