@@ -14,7 +14,7 @@ The following software are required.
 Angular - Node js Version 16.16.0
         - $ npm install -g @angular/cli
         - $ ng serve or npm start 
-         - Default Server Port Is 4200 (http://localhost:4200/)
+        - Default Server Port Is 4200 (http://localhost:4200/)
 
 Java - Java JDK 1.8
      - Default Server Port Is 8080
@@ -31,9 +31,9 @@ Project contains Junit Test Cases and 3 APIs based on given Details in the backe
 
 API 1: 
 ```
-    -URL: http://localhost:8080/api/media/getMediaList?top=2
-    -Method: GET
-    -Response: It will return list of Media Details list
+    - URL: http://localhost:8080/api/media/getMediaList?top=2
+    - Method: GET
+    - Response: It will return list of Media Details list
 ```    
 ```
              {
