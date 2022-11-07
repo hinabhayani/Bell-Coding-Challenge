@@ -25,7 +25,9 @@ Java - Java JDK 1.8
 
 3.Funcationality
 
-## 3.1 Backend - Project contains Junit Test Cases and 3 APIs based on given Details in the backend. 
+## 3.1 Backend / Java
+
+Project contains Junit Test Cases and 3 APIs based on given Details in the backend. 
 
 API 1: 
     -URL: http://localhost:8080/api/media/getMediaList?top=2
