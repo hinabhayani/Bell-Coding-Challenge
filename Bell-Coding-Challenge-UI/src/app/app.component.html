@@ -1,0 +1,118 @@
+<div class="wrapper">
+  <main>
+    <section class="inner-banner-section" style="background: url('./assets/images/contact-bg.jpg');">
+      <div class="container">
+        <div class="page-title">
+          <h1>Bell Media Display</h1>
+        </div>
+
+      </div>
+    </section>
+
+    <section class="package-title">
+      <div class="container">
+        <div class="row">
+          <div class="card mb-4">
+            <div class="card-body">
+              <div  class="row">
+                <div class="col-md-12 ">
+                  <div class="container">
+                  <form [formGroup]="form" (ngSubmit)="getMediaList(number)">
+                    <div class="form-group">
+                          <input formControlName="number" type="tezt" id="number" placeholder="Enter Number" name="Media" [(ngModel)]="number">
+                         <button  class="btn btn-primary" type="submit" [disabled]="!form.valid">Submit</button>
+                      <div *ngIf="f.number.touched && f.number.invalid" class="alert alert-danger">
+                          <div *ngIf="f.number.errors.required">Number is required.</div>
+                          <div *ngIf="f.number.errors.pattern">Enter Valid Number.</div>
+                      </div>
+                  </div>
+                  
+                  </form>
+                  </div>
+                  <table class="table table-hover">
+                    <thead class="mdb-color darken-3">
+                      <tr class="text-black">
+                        <th>Id</th>
+                        <th>Name</th>
+                        <th>Action</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr *ngFor="let media of listOfMedia">
+                        <th scope="row">{{media.Id}}</th>
+                        <td>{{media.Name}}</td>
+                        <td><button type="button" class="btn btn-primary" (click)="getPosterByMediaId(media.Id)">Get
+                            Detail</button></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <div class="row">
+                    <div class="col-md-4">
+                      <div class="form-group">
+                        <label for="exampleFormControlSelect1"><h4>Select Media</h4></label>
+                        <select class="form-control" placeholder="Select media"  id="exampleFormControlSelect1"
+                        [(ngModel)]="selectedMedia" (ngModelChange)="selectedMediaChange(selectedMedia)">
+                        <option value="">Select media</option>
+                          <option *ngFor="let media of listOfMedia" [value]="media.Id">{{media.Name}}</option>
+                        </select>
+                      </div>
+                    </div>
+                    <div class="col-md-4">
+                      <div *ngIf="selectedMedia" class="form-group">
+                        <label for="exampleFormControlSelect1"><h4>Select Media Type</h4></label>
+                        <select class="form-control" placeholder="Select media type" id="exampleFormControlSelect1"
+                        [(ngModel)]="selectedMediaType" (ngModelChange)="selectedMediaTypeChange(selectedMediaType)">
+                        <option value="">Select media type</option>  
+                        <option *ngFor="let mediaType of mediaImages" [value]="mediaType.Type">{{mediaType.Type}}</option>
+                        </select>
+                      </div>
+                    </div>
+                    <div class="col-md-4">
+                    </div>
+
+                  </div>
+                </div>
+              </div>
+              <div *ngIf="mediaDetails && mediaDetails.Name" class="row package-title">
+                <div class="col-md-12">
+
+                  <section class="package-section">
+                    <div class="container">
+                      <div class="row">
+                        <div class="col-lg-9 col-md-12 col-sm-12">
+                          <div class="package-title">
+                            <h1><strong>Name</strong> : {{mediaDetails.Name}}</h1>
+                            <hr/>
+                            <p><strong>Summary</strong> : {{mediaDetails.ShortDesc}}</p><br/>
+                            <p><strong>Description</strong> : {{mediaDetails.Desc}}</p><br/>
+                            <p><strong>Genres</strong> : {{genres}}</p>
+                          </div>
+                        </div>
+                        <div class="col-lg-3 col-md-12 col-sm-12">
+                        </div>
+                      </div>
+                      <div *ngIf=" mediaDetails.Images" class="all-package-box">
+                        <div *ngFor="let mediaImage of mediaDetails.Images" class="single-package-box">
+                          <img *ngIf="mediaImage.Url" [src]="mediaImage.Url" alt="image" height="{{mediaImage.Height}}" width="{{mediaImage.width}}">
+                          <div class="single-detail-package">
+                            <h2>Type : {{mediaImage.Type}}</h2>
+                          </div>
+                        </div>
+                      </div>
+                      <div *ngIf="!mediaDetails.Images.length" class="all-package-box">
+                        <div class="package-title">
+                        <h1><strong>There is No Media Deatails Available for - {{mediaDetails.Name}}.</strong> </h1>
+                        </div>
+                      </div>
+                    </div>
+                  </section>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+</div>

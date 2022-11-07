@@ -1,0 +1,3 @@
+FROM openjdk:8
+LABEL maintainer = "javaguides.net"
+ADD target/coding-challenge.jar bell.jar ENTRYPOINT["java","-jar","bell.jar"]
