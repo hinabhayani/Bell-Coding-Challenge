@@ -3,12 +3,12 @@
 
 1.The Project is Built With following Technology
 
-Backend - Java, Springboot
+Backend - Java, Spring boot
 Frontend - Angular
 Testing- Junit, Mockito
  --------------------------------------------------------------------------------------------------------------------------------------------------------------
 2.Prerequisites & Build:
-The following softwares are required.
+The following software are required.
 
 Angular - Node js Version 16.16.0
         - npm install -g @angular/cli
@@ -25,9 +25,9 @@ Java - Java JDK 1.8
   3.2 Junit- Run as- Junit
 3.Funcationality
 
-3.1 BackEnd -
+3.1 Backend -
 
-I have created Junit TestCases and 3 APIs based on given Details in the backend. 
+I have created Junit Test Cases and 3 APIs based on given Details in the backend. 
 
 API 1: 
     -URL: http://localhost:8080/api/media/getMediaList?top=2
@@ -35,7 +35,7 @@ API 1:
     -Response: It will return list of Media Details like
              {
               "status": "OK",
-              "message": "Sucessfuly Get Media List.",
+              "message": "Successfully Get Media List.",
               "error": null,
               "data": {
                   "Items": [
@@ -59,7 +59,7 @@ API 2:
     - Response: It will return Media details of provided Media Id. 
               {
     "status": "OK",
-    "message": "Sucessfully Get Media Details.",
+    "message": "Successfully Get Media Details.",
     "error": null,
     "data": {
         "Id": 32254,
@@ -93,14 +93,14 @@ API 2:
 API 3: 
     - URL: http://localhost:8080/api/media/getMediaDetailsByIdAndType
     - Method: POST
-    -RequestBody:{
+    -Request Body:{
                   id":32254,
                   "imageType":"square"
                  }
-      -Response: It will Return Media Details and Image list as per given MediaId & ImageType.
+      -Response: It will Return Media Details and Image list as per given Media Id & Image Type.
                 {
                 "status": "OK",
-                "message": "Sucessfuly Get Media Details With Image Type.",
+                "message": "Successfully Get Media Details with Image Type.",
                 "data": {
                     "Id": 32254,
                     "Name": "Bosch",
