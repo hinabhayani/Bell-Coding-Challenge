@@ -28,9 +28,8 @@ public class ItemsController {
 	@GetMapping("getMediaList")
 	public ResponseEntity<ResponseWrapperDTO> getMediaList(@RequestParam(required = false) Integer top) {
 		try {
-			if (Objects.isNull(top) || top == 0)
+			if (Objects.isNull(top) || top <= 0)
 				return BellMethodUtil.incompleteDataResponseEntityForController();
-
 			ResponseWrapperDTO response = itemService.getMediaList(top);
 
 			return new ResponseEntity<>(response, response.getStatus());

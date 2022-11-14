@@ -21,7 +21,6 @@ public class ItemsServiceImpl implements ItemsService {
 
 	@Override
 	public ResponseWrapperDTO getMediaList(Integer NoOfMedia) {
-
 		ResponseEntity<Medias> listOfMedias = BellMethodUtil.restTemplate
 				.getForEntity(BellVariableUtil.BELL_API_FOR_LIST_OF_MEDIA + NoOfMedia, Medias.class);
 
@@ -55,7 +54,7 @@ public class ItemsServiceImpl implements ItemsService {
 			return new ResponseWrapperDTO("Media Details Not Found.", null, HttpStatus.NO_CONTENT);
 
 		if (Objects.isNull(itemDetails.getImages()))
-			return new ResponseWrapperDTO("Images are Not Available Of This Media.", null, HttpStatus.NO_CONTENT);
+			return new ResponseWrapperDTO("Images are not available of This media.", null, HttpStatus.NO_CONTENT);
 
 		List<MediaImages> listOfImages = itemDetails.getImages().stream()
 				.filter(data -> data.getType().trim().equals(imageType.trim())).collect(Collectors.toList());
